@@ -31,11 +31,21 @@ var songSearch = function (song, artist) {
                 console.log(data.lyrics)
                 displayLyrics(data)
             })
+        } else {
+            alert("Error: " + response.statusText)
         }
+    })
+    .catch(function (event) {  
+        alert("Unable to connect to Lyrics API")
     })
 }
 
 var displayLyrics = function (data) {
+    if (data.lyrics.length === 0) {
+        console.log("no lyrics found")
+        lyricsDisplay.textContent = "No Lyrics Found"
+        return
+    }
     lyricsDisplay.textContent = data.lyrics
 }
 

@@ -51,7 +51,23 @@ var displayLyrics = function (data) {
     }
     lyricsDisplay.textContent = "";
     lyricsDisplay.textContent = data.lyrics;
+    // YOUTUBE
+var YoutubeApi = "AIzaSyDmjBtZUutKjG2725gC5lcGoV_jzDwbR7o";
+
+
+fetch("https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=kane brown heaven&type=video&videoCaption=closedCaption&key=" + YoutubeApi)
+
+.then(function (response) {  
+    if (response.ok) {
+        response.json().then(function (data) {  
+            console.log(data);
+        })
+    } else {
+        alert("Error: " + response.statusText);
+    }
+})
 }
 
-
 searchSongBtn.addEventListener("click", formSubmitHandler);
+
+

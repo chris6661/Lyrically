@@ -1,12 +1,161 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-  </head>
-  <body>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
 
-  </body>
+    <!-- NES Style
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <style>
+        html, body, pre, code, kbd, samp {
+            font-family: "Press Start 2P";
+        }
+    </style>
+    -->
+    <title>Bulma Test File</title>
+</head>
+<body>
+    <!-- NAVBAR START -->
+    <nav class="navbar is-light is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+                <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+            </a>
+      
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item mr-5">
+                  How To Use
+                </a>
+      
+                <a class="navbar-item mr-5">
+                  How It Works
+                </a>
+      
+                <div class="navbar-item has-dropdown is-hoverable mr-5">
+                    <a class="navbar-link">
+                        More
+                    </a>
+      
+                    <div class="navbar-dropdown is-right">
+                        <a class="navbar-item">
+                            About
+                        </a>
+                        <a class="navbar-item">
+                            Jobs
+                        </a>
+                        <a class="navbar-item">
+                            Contact
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item">
+                            Report an issue
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR END -->
+
+    <!-- HERO START -->
+    <div class="block mt-5">
+        <section class="hero is-primary">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <h1 class="title">Welcome to Lyrically</h1>
+                    <h2 class="subtitle mt-3">
+                       <p>Step 1: Enter a song title and artist name</p>
+                       <p>Step 2: Sing along to the generated lyrics</p>
+                       <p>Step 3: Learn the meaning behind the lyrics</p>
+                    </h2>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- HERO END -->
+
+    <!-- MAIN SECTION START -->
+    <div class="block m-3">
+        <div class="columns">
+            <div class="column is-5">
+                <div class="block">
+                    <form action="">
+                        <div class="field">
+                            <label for="" class="label has-text-centered">STEP 1: Song Information</label>
+                            <input type="text" id="song" class="input is-rounded" placeholder="Enter Song Title">
+                        </div>
+                        <div class="field">
+                            <p class="control">
+                                <input id="artist" id="artist" type="text" class="input is-rounded" placeholder="Enter Artist Name">
+                            </p>
+                            <p class="control">
+                                <a href="" id="searchSong" class="button is-info is-rounded mt-3">Search</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="block column">
+                    <figure class="image is-16by9">
+                        <iframe id="video" class="has-ratio" width="640" height="360" frameborder="0"
+                            src="https://www.youtube.com/embed/">
+                        </iframe>
+                    </figure>
+                </div>
+            </div>
+            <div class="column is-7">
+                <div class="field">
+                    <label for="" class="label has-text-centered">STEP 2: Sing Along</label>
+                </div>
+                <div class="box">
+                    <p id="songInfo" class="has-text-centered">Song Title by Artist<p>
+                    <hr>
+                    <p id="lyricsDisplay">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eius modi minima enim similique ipsum reiciendis reprehenderit tenetur deserunt? Nihil ea debitis veniam laborum, rerum molestias fuga voluptatum impedit eius. Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eveniet amet velit cum, temporibus optio alias perspiciatis eligendi tenetur labore ut laboriosam deserunt. Officiis saepe sapiente veniam mollitia voluptas qui? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum odit minima rem obcaecati sunt inventore blanditiis adipisci libero doloribus neque exercitationem cum necessitatibus non aperiam, tenetur quo quia, repudiandae sapiente? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi molestiae vitae odio molestias at corporis officia blanditiis laboriosam rerum, quasi nostrum quas ad aspernatur magnam repudiandae. Error eum asperiores laboriosam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dolores in asperiores perspiciatis deleniti nemo eligendi sint at numquam sunt culpa facere saepe quibusdam reiciendis, quae doloremque rerum non eius? Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta mollitia optio veniam sunt aut cumque laudantium delectus veritatis magnam nostrum. Sequi accusantium nisi, delectus minima optio id provident sed nobis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore itaque nesciunt porro commodi iusto suscipit facilis iure aperiam aut perspiciatis, incidunt ab odio officiis repudiandae impedit, distinctio quis id et.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="block m-3">
+        <div class="columns">
+            <div class="column is-12">
+                <label for="" class="label has-text-centered">STEP 3: Understand the Story Behind the Song</label>
+                <p>Where interviews and stuff will go from spotify</p>
+            </div>
+        </div>
+    </div>
+    <!-- MAIN SECTION END -->
+
+    <footer class="card-footer">
+        <p class="card-footer-item">
+            <span>
+                <a href=""><i class="fab fa-facebook"></i></a>
+            </span>
+        </p>
+    </footer>
+
+
+
+    
+
+
+    <div style="margin-top:200px"></div>
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
 </html>

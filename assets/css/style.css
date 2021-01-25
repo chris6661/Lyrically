@@ -1,5 +1,75 @@
-@import "./node_modules/nes.css/css/nes.css"
+* {
+    padding: 0;
+    margin: 0;
+}
 
-h1 {
-    color: red;  
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+/*materialize*/
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+
+.collection-item {
+    height: 200px;
+    overflow: hidden;
+}
+
+.collection {
+    width: 60%;
+}
+
+.collection .collection-item {
+    padding: 10px;
+}
+
+.btn {
+    background: #f44336;
+}
+
+.btn:hover {
+    background: #ff8a80;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid #f44336;
+    box-shadow: 0 2px 0 0 #f44336;
+}
+
+/*
+custom css
+*/
+
+
+#results {
+    display: none;
+}
+
+.image-container {
+    float: left;
+    position: relative;
+    width: 320px;
+    height: 190px;
+}
+
+.image {
+    position: absolute;
+}
+
+.video-info-container {
+    height: 190px;
+    margin-left: 330px;
+    font-size: 14px;
+}
+
+/* video title*/
+.title {
+    font-size: 22px;
 }

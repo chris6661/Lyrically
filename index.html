@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
-    <title>Cyrical</title>
-    
-    
+    <title>Lyrically</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- Materialize Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <!-- Materialize Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
-    <header>
-        <h1>Cyrical</h1>
-        <p>A website used to search for a song to be played and the lyrics to be displayed next to it.</p>
+    <div class="container">
+        <!-- Heading -->
+        <h2 class="center-align">Lyrically</h2>
+        <!-- Details -->
 
-    </header>
+        <div class="row">
+            <div class="input-field col s6">
+                <!-- Search Box -->
+                <input id="searchTxt" type="text" class="validate">
+                <label for="searchTxt">Search</label>
 
-    <script src="./assets/js/script.js"></script>
-    <script src="./assets/js/spotify.js"></script>
+            </div>
+            <div class="input-field col s6">
+                <!-- Search Button -->
+                <a class="waves-effect waves-light btn" id="searchBtn">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    Search
+                </a>
+            </div>
+            <ul class="collection" id="results">
+              
 
+            </ul>
+        </div>
+        <!-- javascript -->
+        <script src="./assets/js/spotify.js"></script>
 </body>
+
 </html>

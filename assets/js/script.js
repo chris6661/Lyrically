@@ -43,6 +43,7 @@ var displayLyrics = function (data) {
     if (data.lyrics.length === 0) {
         console.log("no lyrics found");
         lyricsDisplay.textContent = "No Lyrics Found";
+        document.getElementById("video").src = "https://www.youtube.com/embed/";
         return;
     } else {
         lyricsDisplay.textContent = "";

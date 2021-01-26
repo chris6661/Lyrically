@@ -1,4 +1,9 @@
 .hero-body {
-    background-image: url("../images/giphy\ -\ Copy.gif");
+    background-image: url("../images/dancingman.gif");
     object-fit: contain;
   }
+
+.body {
+    background-color: black;
+}
+

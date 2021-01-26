@@ -9,9 +9,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
 
-    <!-- regular css -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-
     <!-- NES Style -->
     <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
@@ -19,6 +16,9 @@
 
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+
+    <!-- regular css -->
+    <link rel="stylesheet" href="./assets/css/style.css">
 
     <title>Lyrically</title>
 </head>
@@ -48,7 +48,7 @@
                 <div class="block">
                     <form action="">
                         <div class="field">
-                            <div class="nes-container is-rounded is-dark">
+                            <div class="nes-container is-rounded">
                             <label for="" class="label has-text-centered has-text-info">STEP 1: Song Information</label>
                         </div>
                             <input type="text" id="song" class="nes-textarea" textarea id="textarea_field" placeholder="Enter Song Title">
@@ -58,13 +58,13 @@
                                 <input id="artist" id="artist" type="text" class="nes-textarea" textarea id="textarea_field" placeholder="Enter Artist Name">
                             </p>
                             <p class="control">
-                                <a href="" id="searchSong" buttontype="button" class="nes-btn is-primary" >Search</a>
+                                <a href="" id="searchSong" buttontype="button" class="nes-btn is-warning" >Search</a>
                             </p>
                         </div>
                     </form>
                 </div>
 
-                <div class="nes-container is-rounded is-dark">
+                <div class="nes-container is-rounded">
                     <figure class="image is-16by9">
                         <iframe id="video" class="has-ratio" width="640" height="360" frameborder="0"
                             src="https://www.youtube.com/embed/">
@@ -74,7 +74,7 @@
 
             </div>
             <div class="column is-7">
-                <div class="nes-container is-rounded is-dark">
+                <div class="nes-container is-rounded">
                     <label for="" class="label has-text-centered has-text-success">STEP 2: Sing Along</label>
                 </div>
                 <div class="nes-container is-rounded">
@@ -89,10 +89,10 @@
     <div class="block m-3">
         <div class="columns">
             <div class="column is-12">
-                <div class="nes-container is-rounded is-dark">
+                <div class="nes-container is-rounded">
                 <label for="" class="label has-text-centered has-text-primary">STEP 3: Understand the Story Behind the Song</label>
                 </div>
-                <p>Where interviews and stuff will go from spotify</p>
+                <p class="has-text-white">Where interviews and stuff will go from spotify</p>
             </div>
         </div>
     </div>

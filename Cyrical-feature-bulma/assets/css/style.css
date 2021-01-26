@@ -3,7 +3,11 @@
     object-fit: contain;
   }
 
-.body {
-    background-color: black;
-}
+  body {
+      background-color: rgb(38, 27, 185);
+  }
 
+  /* Background adjusts for containers, if removed it will go to background color */
+  .nes-container {
+      background: white;
+  }

@@ -7,6 +7,12 @@ var song = "";
 var artist = "";
 var testLyric = "";
 
+if (localStorage.getItem("lyrics") != null) {
+    document.getElementById("lyricsDisplay").innerHTML = localStorage.getItem("lyrics");
+    document.getElementById("video").src = localStorage.getItem("video");
+    songInfo.textContent = localStorage.getItem("songInfo");
+}
+
 var formSubmitHandler = function (event) {  
     event.preventDefault();
 
@@ -16,6 +22,7 @@ var formSubmitHandler = function (event) {
     if (song, artist) {
         songSearch(song, artist);
         songInfo.textContent = song.toUpperCase() + " BY " + artist.toUpperCase();
+        localStorage.setItem("songInfo", song.toUpperCase() + " BY " + artist.toUpperCase());
         songSearchEl.value = "";
         artistSearchEl.value = "";
     } else {
@@ -55,6 +62,7 @@ var displayLyrics = function (data) {
             lyricText[i] = lyricText[i] + "<br>";
         }
         lyricText = lyricText.join("");
+        localStorage.setItem("lyrics", lyricText);
         document.getElementById("lyricsDisplay").innerHTML = lyricText;
 
         // YOUTUBE
@@ -67,6 +75,7 @@ var displayLyrics = function (data) {
                     //console.log(data);
                     var videoId = data.items[0].id.videoId;
                     document.getElementById("video").src = "https://www.youtube.com/embed/" + videoId;
+                    localStorage.setItem("video", "https://www.youtube.com/embed/" + videoId);
                 })
             } else {
                 alert("Error: " + response.statusText);

@@ -5,6 +5,7 @@ var songInfo = document.querySelector("#songInfo");
 var lyricsDisplay = document.querySelector("#lyricsDisplay");
 var song = "";
 var artist = "";
+var testLyric = "";
 
 var formSubmitHandler = function (event) {  
     event.preventDefault();
@@ -27,7 +28,6 @@ var songSearch = function (song, artist) {
     fetch(apiURL).then(function (response) {  
         if (response.ok) {
             response.json().then(function (data) {  
-                console.log(data.lyrics);
                 displayLyrics(data);
             })
         } else {
@@ -46,8 +46,16 @@ var displayLyrics = function (data) {
         return;
     } else {
         lyricsDisplay.textContent = "";
-        lyricsDisplay.textContent = data.lyrics;
+        var lyricText = data.lyrics.split("\n");
+        console.log(data.lyrics);
+        console.log(lyricText);
         
+        for (var i =0; i < lyricText.length; i++) {
+            lyricText[i] = lyricText[i] + "<br>";
+        }
+        lyricText = lyricText.join("");
+        document.getElementById("lyricsDisplay").innerHTML = lyricText;
+
         // YOUTUBE
         var YoutubeApi = "AIzaSyDmjBtZUutKjG2725gC5lcGoV_jzDwbR7o";
         fetch("https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=" + song + " " + artist + "&type=video&videoCaption=closedCaption&key=" + YoutubeApi)

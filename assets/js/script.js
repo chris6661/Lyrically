@@ -5,6 +5,7 @@ var songLyricsEl = document.querySelector("#songLyrics")
 var lyricsDisplay = document.querySelector("#lyricsDisplay")
 
 var formSubmitHandler = function (event) {  
+    debugger
     event.preventDefault()
 
     var song = songSearchEl.value.trim()
@@ -45,7 +46,7 @@ var displayLyrics = function (data) {
         console.log("no lyrics found")
         lyricsDisplay.textContent = "No Lyrics Found"
         return
-    }
+    } 
     lyricsDisplay.textContent = data.lyrics
 }
 

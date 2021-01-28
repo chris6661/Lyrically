@@ -15,6 +15,7 @@ if (localStorage.getItem("lyrics") != null) {
 
 var formSubmitHandler = function (event) {  
     event.preventDefault();
+    resetSearchError();
 
     song = songSearchEl.value.trim();
     artist = artistSearchEl.value.trim();
@@ -26,9 +27,23 @@ var formSubmitHandler = function (event) {
         songSearchEl.value = "";
         artistSearchEl.value = "";
     } else {
-        alert("Please Enter A Song Title And Artist Name");
+        document.getElementById("error").value = "";
+        showSearchError("Please enter a song title and artist name!");
     }
 }
+
+//search error and empty searches
+function resetSearchError() {
+    //removes class from container using NES
+    document.getElementById('error').classList.remove('nes-container');
+    document.getElementById('error').textContent = '';
+}
+function showSearchError(message) {
+    //adds class to container using NES
+    document.getElementById('error').classList.add('nes-container');
+    document.getElementById('error').textContent = message;
+}
+
 
 var songSearch = function (song, artist) { 
     var apiURL = "https://api.lyrics.ovh/v1/" + artist + "/" + song;

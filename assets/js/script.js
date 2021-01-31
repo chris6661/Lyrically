@@ -1,4 +1,4 @@
-localStorage.clear();
+// localStorage.clear();
 var songSearchEl = document.querySelector("#song");
 var artistSearchEl = document.querySelector("#artist");
 var searchSongBtn = document.querySelector("#searchSong");
@@ -19,6 +19,30 @@ if (localStorage.getItem("lyrics") != null) {
     document.getElementById("lyricsDisplay").innerHTML = localStorage.getItem("lyrics");
     document.getElementById("video").src = localStorage.getItem("video");
     songInfo.textContent = localStorage.getItem("songInfo");
+}
+
+if (historyLog != null){
+    for (var i = 0; i<historyLog.length; i++){
+        var historyField = document.createElement("div");
+        historyField.className = "historyField field has-addons";
+        historyField.style.height = "41px";
+        historyField.style.maxWidth = "inherit";
+        var historySongField = document.createElement("p");
+        historySongField.className = "control";
+        var historySongBtn = document.createElement("a");
+        historySongBtn.className = "historyBtn button is-primary is-outlined";
+        historySongBtn.textContent = historyLog[i];
+        historySongField.appendChild(historySongBtn);
+        var deleteField = document.createElement("p");
+        deleteField.className = "control";
+        var deleteBtn = document.createElement("a");
+        deleteBtn.className = "deleteBtn button is-danger is-outlined";
+        deleteBtn.textContent = "X";
+        deleteField.appendChild(deleteBtn);
+        historyField.appendChild(historySongField);
+        historyField.appendChild(deleteField);
+        searchContainer.appendChild(historyField);
+    }
 }
 
 var formSubmitHandler = function (event) {  
@@ -113,7 +137,6 @@ var searchHistoy = function(){
     } else {
         conditional = "no"
         historyLog.push(localStorage.getItem("songInfo"));
-        // console.log(historyLog);
         localStorage.setItem("localHistory", historyLog);
     }
     
@@ -151,9 +174,12 @@ $("#searchHistory").on("click", ".historyBtn", function(){
 
 // Removes a previous search from search history when delete button clicked
 $("#searchHistory").on("click", ".deleteBtn", function(){
-    //$(this).closest(".historyField").remove();
-    //($(this).closest(".historyBtn").text());
-    console.log($(this).parent());
+    var removeItem = ($(this).parent().parent().text().slice(0,-1));
+    historyLog = $.grep(historyLog, function(value) {
+      return value != removeItem;
+    });
+    localStorage.setItem("localHistory", historyLog);
+    $(this).closest(".historyField").remove();
 })
 
 // Hides or shows search history

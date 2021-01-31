@@ -1,3 +1,4 @@
+localStorage.clear();
 var songSearchEl = document.querySelector("#song");
 var artistSearchEl = document.querySelector("#artist");
 var searchSongBtn = document.querySelector("#searchSong");
@@ -5,7 +6,9 @@ var songInfo = document.querySelector("#songInfo");
 var lyricsDisplay = document.querySelector("#lyricsDisplay");
 var searchContainer = document.querySelector("#searchHistory");
 var showHistoryBtn = document.querySelector("#showHistory");
-var historyLog = [];
+var historyLog = localStorage.getItem("localHistory");
+// Does history log exist? AKA is there any local history. If not create empty array.
+historyLog = historyLog ? historyLog.split(",") : [];
 var conditional = "";
 var song = "";
 var artist = "";
@@ -104,12 +107,14 @@ var displayLyrics = function (data) {
 
 // Creates search history log
 var searchHistoy = function(){
-    // Determining if previous search is already in the history log
+    // Determines if previous search is already in the history log
     if (historyLog.includes(localStorage.getItem("songInfo"))){
         conditional = "yes";
     } else {
         conditional = "no"
         historyLog.push(localStorage.getItem("songInfo"));
+        // console.log(historyLog);
+        localStorage.setItem("localHistory", historyLog);
     }
     
     // If previous search is not in the history log, create new entry
@@ -146,7 +151,9 @@ $("#searchHistory").on("click", ".historyBtn", function(){
 
 // Removes a previous search from search history when delete button clicked
 $("#searchHistory").on("click", ".deleteBtn", function(){
-    $(this).closest(".historyField").remove();
+    //$(this).closest(".historyField").remove();
+    //($(this).closest(".historyBtn").text());
+    console.log($(this).parent());
 })
 
 // Hides or shows search history

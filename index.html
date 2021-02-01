@@ -3,46 +3,134 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Lyrically</title>
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <!-- Materialize Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
-    <!-- Materialize Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
-    <!-- Custom CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+
+    <!-- NES Style -->
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+
+    <!-- regular css -->
     <link rel="stylesheet" href="./assets/css/style.css">
+
+    <title>Lyrically</title>
 </head>
 
 <body>
-    <div class="container">
-        <!-- Heading -->
-        <h2 class="center-align">Lyrically</h2>
-        <!-- Details -->
 
-        <div class="row">
-            <div class="input-field col s6">
-                <!-- Search Box -->
-                <input id="searchTxt" type="text" class="validate">
-                <label for="searchTxt">Search</label>
+    <!-- HERO START -->
+    <div class="block mt-5">
+        <section class="hero is-primary">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <h1 class="title has-text-warning">Welcome to Lyrically</h1>
+                    <h2 class="subtitle mt-3">
+                        <p class="has-text-info">Step 1: Enter a song title and artist name</p>
+                        <p class="has-text-success">Step 2: Sing along to the generated lyrics</p>
+                        <p class="has-text-primary">Step 3: Learn the meaning behind the lyrics</p>
+                    </h2>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- HERO END -->
+
+    <!-- MAIN SECTION START -->
+    <div class="block m-3">
+        <div class="columns">
+            <div class="column is-5">
+                <div class="block">
+                    <form action="">
+                        <div class="field">
+                            <div class="nes-container is-rounded">
+                                <label for="" class="label has-text-centered has-text-info">STEP 1: Song
+                                    Information</label>
+                            </div>
+                            <input type="text" id="song" class="nes-textarea" textarea id="textarea_field"
+                                placeholder="Enter Song Title">
+                        </div>
+                        <div class="field">
+                            <p class="control">
+                                <input id="artist" id="artist" type="text" class="nes-textarea" textarea
+                                    id="textarea_field" placeholder="Enter Artist Name">
+                            </p>
+                            <p class="control">
+                                <a href="" id="searchSong" buttontype="button" class="nes-btn is-warning">Search</a>
+                            </p>
+                            <!--for displaying error message-->
+                            <p id="error"></p>
+
+                        </div>
+                    </form>
+                </div>
+
+                <div class="nes-container is-rounded">
+                    <figure class="image is-16by9">
+                        <iframe id="video" class="has-ratio" width="640" height="360" frameborder="0"
+                            src="https://www.youtube.com/embed/">
+                        </iframe>
+                    </figure>
+                </div>
+
+                <div class="nes-container is-rounded is-hidden" id="previousSongcard">
+                    <figure class="image has-text-centered">
+                        <h2>Last Played</h2>
+                        <h3>Song</h3>
+                        <p id='previousSong'></p>
+                        <h3>Artist</h3>
+                        <p id='previousArtist'></p>
+                        <!--button to play previous song-->
+                        <btn id="previousVideo" buttontype="button" class="nes-btn is-warning">It was just so good you wanted to play it again!</btn>
+                    </figure>
+                </div>
 
             </div>
-            <div class="input-field col s6">
-                <!-- Search Button -->
-                <a class="waves-effect waves-light btn" id="searchBtn">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                    Search
-                </a>
+            <div class="column is-7">
+                <div class="nes-container is-rounded">
+                    <label for="" class="label has-text-centered has-text-success">STEP 2: Sing Along</label>
+                </div>
+                <div class="nes-container is-rounded">
+                    <p id="songInfo" class="has-text-centered">Song Title by Artist<p>
+                            <hr>
+                            <p id="lyricsDisplay">Lyrics will show here after you complete Step 1! Go ahead and search
+                                for a song!</p>
+                </div>
             </div>
-            <ul class="collection" id="results">
-              
-
-            </ul>
         </div>
-        <!-- javascript -->
-        <script src="./assets/js/spotify.js"></script>
+    </div>
+    <hr>
+    <div class="block m-3">
+        <div class="columns">
+            <div class="column is-12">
+                <div class="nes-container is-rounded">
+                    <label for="" class="label has-text-centered has-text-primary">STEP 3: Understand the Story Behind
+                        the Song</label>
+                </div>
+                <p class="has-text-white">Where interviews and stuff will go from spotify</p>
+            </div>
+        </div>
+    </div>
+    <!--breaks to create space between step 3 and back to top link-->
+    <br>
+    <br>
+    <br>
+    <!--return to top of page-->
+    <a href="#top" class="nes-container is-rounded has-text-dark">Go to the top of the page to search again!</a>
+
+    <!-- MAIN SECTION END -->
+
+    <div style="margin-top:200px"></div>
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>

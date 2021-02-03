@@ -11,3 +11,17 @@
   .nes-container {
       background: white;
   }
+
+  /* NEW : Member Cards */
+  .coreteam-members {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+
+  .member-card .avatar > img {
+      display: block;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+  }
